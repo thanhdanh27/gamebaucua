@@ -215,7 +215,7 @@ btnChot.onclick = function(){
         clearInterval(bd);
         //  mangCheck = [check1, check2, check3, check4, check5, check6];
         for(var index of mangImg ){
-            //console.log(index.src.slice(21))
+           
            if(index.src.slice(21) == '/img/bau.png')
            tongBau++;
            if(index.src.slice(21) == '/img/cua.png')
