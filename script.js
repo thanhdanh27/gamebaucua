@@ -66,6 +66,9 @@ inputGa.oninput = function(e){
 btnNew.onclick = function(){
     btnXoc.disabled = true;
     btnChot.disabled = false;
+    mangInput.forEach(function(item){
+        item.disabled = false;
+    })
     tongBau = 0; tongCa = 0; tongCua = 0;
     tongTom = 0; tongNai = 0; tongGa = 0;
     totalWin = 0;
@@ -105,6 +108,12 @@ btnChot.onclick = function(){
             mangInput.forEach(function(item){
                 item.value = '';
              })
+            check1 = false;
+            check2 = false;
+            check3 = false;
+            check4 = false;
+            check5 = false;
+            check6 = false;
         }
         else if(betMoney < 0 && dem1 < 1)
         {
@@ -113,6 +122,12 @@ btnChot.onclick = function(){
             mangInput.forEach(function(item){
                 item.value = '';
              })
+                check1 = false;
+                check2 = false;
+                check3 = false;
+                check4 = false;
+                check5 = false;
+                check6 = false;
         }
         else if(betMoney == 0 && dem3 < 1)
         {
@@ -121,10 +136,19 @@ btnChot.onclick = function(){
             mangInput.forEach(function(item){
                 item.value = '';
              })
+                check1 = false;
+                check2 = false;
+                check3 = false;
+                check4 = false;
+                check5 = false;
+                check6 = false;
         }
         else if(betMoney <= currMoney && betMoney != 0){
         btnXoc.disabled = false;
         btnChot.disabled = true;
+        mangInput.forEach(function(item){
+            item.disabled = true;
+        })
         mangCheck = [check1,check2,check3,check4,check5,check6];
         }
     }) 
@@ -214,53 +238,53 @@ btnChot.onclick = function(){
                 {
                     if(index == 0 && index == id){
                         totalWin += tongBau * parseInt(inputBau.value);
-                        return;
+                        
                     }
-                    if(index == 1 && index == id){
+                    else if(index == 1 && index == id){
                         totalWin += tongCua * parseInt(inputCua.value);
-                        return;
+                       
                     }
-                    if(index == 2 && index == id){
+                    else if(index == 2 && index == id){
                         totalWin += tongTom * parseInt(inputTom.value);
-                        return;
+                      
                     }
-                    if(index == 3 && index == id){
+                    else if(index == 3 && index == id){
                         totalWin += tongCa * parseInt(inputCa.value);
-                        return;
+                        
                     }
-                    if(index == 4 && index == id){
+                    else if(index == 4 && index == id){
                         totalWin += tongNai * parseInt(inputNai.value);
-                        return;
+                       
                     }
-                    if(index == 5 && index == id){
+                    else if(index == 5 && index == id){
                         totalWin += tongGa * parseInt(inputGa.value);
-                        return;
+                        
                     }
                 }
                 else if(i == 0){
                     if(index == 0 && index == id){
                         totalLose += parseInt(inputBau.value);
-                        return;
+                       
                     }
-                    if(index == 1 && index == id){
+                    else if(index == 1 && index == id){
                         totalLose += parseInt(inputCua.value);
-                        return;
+                       
                     }
-                    if(index == 2 && index == id){
+                    else if(index == 2 && index == id){
                         totalLose += parseInt(inputTom.value);
-                        return;
+                       
                     }
-                    if(index == 3 && index == id){
+                    else if(index == 3 && index == id){
                         totalLose += parseInt(inputCa.value);
-                        return;
+                       
                     }
-                    if(index == 4 && index == id){
+                    else if(index == 4 && index == id){
                         totalLose += parseInt(inputNai.value);
-                        return;
+                       
                     }
-                    if(index == 5 && index == id){
+                    else if(index == 5 && index == id){
                         totalLose += parseInt(inputGa.value);
-                        return;
+                        
                     }
                 }
                })

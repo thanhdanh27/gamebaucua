@@ -1,23 +1,24 @@
 body{
     background-image: url('./img/background.webp');
-    
+    background-size: cover;
+    margin: 0;
+    padding: 0;
 }
 
 .container{
-    display: flex;
-    align-items: center;
     height: 100vh;
-    justify-content: center;
+    position: relative;
 }
 img{
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
 }
 
 .wrap-img-1, .wrap-img-2{
     display: flex;
     justify-content: center;
     gap: 200px;
+    text-align: center;
 }
 
 .wrap-img-2{
@@ -32,16 +33,21 @@ input{
     border-radius: 8px;
     outline-color: transparent;
     outline: none;
-    height: 22px;
+    height: 25px;
     border: 2px solid orange;
     font-weight: 550;
 }
 
 input::placeholder{
     color: #555;
-    font-weight: 600;
+    font-weight: 500;
 }
 
+input:disabled{
+    background-color: #e5e5e5;
+    border-color: #e5e5e5;
+    cursor: not-allowed;
+}
 .xucxac{
     margin-top: 40px;
     display: flex;
@@ -63,10 +69,10 @@ input::placeholder{
 }
 
 .btn button{
-    min-width: 70px;
+    min-width: 80px;
     border-radius: 8px;
     border: 2px solid rgb(229, 229, 229);
-    height: 25px;
+    height: 30px;
     color: #00abf0;
     font-weight: 600;
     cursor: pointer;
@@ -81,7 +87,7 @@ input::placeholder{
     color: white;
     font-weight: 600;
     font-size: 20px;
-    margin-bottom: 20px;
+    padding: 10px 20px;
 }
 
 .fa-coins{
@@ -109,6 +115,18 @@ input::placeholder{
     }
 }
 
+footer{
+    padding: 10px 0;
+    background-color: #00abf0;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background-color: rgb(231, 76, 76);
+    text-align: center;
+    color: #ededed;
+    font-weight: 600;
+    font-family: sans-serif;
+}
 @media (max-width:739px) {
     .wrap-img-1, .wrap-img-2{
         flex-wrap: wrap;
