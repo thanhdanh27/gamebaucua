@@ -216,17 +216,17 @@ btnChot.onclick = function(){
         //  mangCheck = [check1, check2, check3, check4, check5, check6];
         for(var index of mangImg ){
            
-           if(index.src.slice(21) == '/img/bau.png')
+           if(index.src.slice(-7) == 'bau.png')
            tongBau++;
-           if(index.src.slice(21) == '/img/cua.png')
+           if(index.src.slice(-7) == 'cua.png')
            tongCua++;
-           if(index.src.slice(21) == '/img/tom.png')
+           if(index.src.slice(-7) == 'tom.png')
            tongTom++;
-           if(index.src.slice(21) == '/img/ca.png')
+           if(index.src.slice(-7) == 'ca.png')
            tongCa++;
-           if(index.src.slice(21) == '/img/nai.png')
+           if(index.src.slice(-7) == 'nai.png')
            tongNai++;
-           if(index.src.slice(21) == '/img/ga.png')
+           if(index.src.slice(-6) == 'ga.png')
            tongGa++;
         }
         mangTong = [tongBau, tongCua, tongTom, tongCa, tongNai, tongGa];

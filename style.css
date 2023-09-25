@@ -78,8 +78,10 @@ input:disabled{
     cursor: pointer;
 }
 .btn button:disabled{
-    color: #ededed;
+    background-color: #e5e5e5;
     cursor: not-allowed;
+    filter: brightness(0.8);
+    color: #555;
 }
 
 .money{
