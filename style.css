@@ -1,0 +1,128 @@
+body{
+    background-image: url('./img/background.webp');
+}
+
+img{
+    width: 180px;
+    height: 180px;
+}
+
+.wrap-img-1, .wrap-img-2{
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+}
+
+.wrap-img-2{
+    margin-top: 35px;
+}
+.inPut{
+    margin-top: 10px;
+    text-align: center;
+}
+
+input{
+    border-radius: 8px;
+    outline-color: transparent;
+    outline: none;
+    height: 22px;
+    border: 2px solid orange;
+    font-weight: 550;
+}
+
+input::placeholder{
+    color: #555;
+    font-weight: 600;
+}
+
+.xucxac{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.xucxac img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 25px;
+}
+
+.btn button{
+    min-width: 70px;
+    border-radius: 8px;
+    border: 2px solid rgb(229, 229, 229);
+    height: 25px;
+    color: #00abf0;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn button:disabled{
+    color: #ededed;
+    cursor: not-allowed;
+}
+
+.money{
+    text-align: right;
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.fa-coins{
+    color: yellow;
+}
+
+@media (min-width:740px) and (max-width:1023px)
+{
+    .wrap-img-1, .wrap-img-2{
+        flex-wrap: wrap;
+        gap: 0;
+    }
+    .img-item{
+        margin: 0px 30px 30px 30px;
+    }
+    .wrap-img-1{
+        margin-top: 50px;
+    }
+    .btn{
+        margin-top: 30px;
+    }
+    .btn button{
+        height: 35px;
+        width: 90px;
+    }
+}
+
+@media (max-width:739px) {
+    .wrap-img-1, .wrap-img-2{
+        flex-wrap: wrap;
+        gap: 0;
+    }
+    img{
+        width: 100px;
+        height: 100px;
+    }
+    input{
+        width: 80px;
+    }
+    .wrap-img-1{
+        margin-top: 50px;
+    }
+    .xucxac img{
+        width: 80px;
+        height: 80px;
+        
+    }
+
+    .img-item{
+        margin: 0 8px;
+    }
+}
