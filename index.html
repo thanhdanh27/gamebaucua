@@ -10,7 +10,27 @@
 <body>
     <div class="container">
         <div class="main">
+                <div class="toast toast--sucess">
+                    <div class="toast__icon">
+                        
+                    </div>
+                    <div class="toast__body">
+                     <h3 class="toast__title">
+                         Kết quả
+                     </h3>
+                     <div class="toast__content">
+                         
+                     </div>
+                    </div>
+                    <div class="toast__close">
+                     <i class="fa-regular fa-circle-xmark"></i>
+                    </div>
+                </div>
+
             <div class="money">
+                <div class="menu menu-mobile">
+                    <i class="fa-solid fa-gift"></i>
+                </div>
                 <i class="fa-solid fa-coins"></i>
                 <span class="total"></span>
             </div>
@@ -19,18 +39,21 @@
                     <img class="img-bau" src="./img/bau.png" alt="">
                     <div class="inPut">
                         <input type="number" placeholder="Bầu" id="bau" src="./img/bau.png">
+                        <div class="all-in">All in</div>
                     </div>
                 </div>
                 <div class="img-item">
                     <img class="img-cua" src="./img/cua.png" alt="">
                     <div class="inPut">
                         <input type="number" placeholder="Cua" id="cua" src="./img/cua.png">
+                        <div class="all-in">All in</div>
                     </div>
                 </div>
                 <div class="img-item">
                     <img class="img-tom" src="./img/tom.png" alt="">
                     <div class="inPut">
                         <input type="number" placeholder="Tôm" id="tom" src="./img/tom.png">
+                        <div class="all-in">All in</div>
                     </div>
                 </div>
                 
@@ -40,18 +63,21 @@
                     <img class="img-ca" src="./img/ca.png" alt="">
                     <div class="inPut">
                         <input type="number" placeholder="Cá" id="ca" src="./img/ca.png">
+                       <div class="all-in">All in</div>
                     </div>
                 </div>
                 <div class="img-item">
                     <img class="img-nai" src="./img/nai.png" alt="">
                     <div class="inPut">
                         <input type="number" placeholder="Nai" id="nai" src="./img/nai.png">
+                        <div class="all-in">All in</div>
                     </div>
                 </div>
                 <div class="img-item">
                     <img class="img-ga" src="./img/ga.png" alt="">
                     <div class="inPut">
                         <input type="number" placeholder="Gà" id="ga" src="./img/ga.png">
+                        <div class="all-in">All in</div>
                     </div>
                 </div>
             </div>
@@ -64,9 +90,41 @@
                 <button  class="chot">Chốt</button>
                 <button disabled class="xoc">Xốc</button>
                 <button class="fresh">Làm mới</button>
+                <div class="menu menu-pc">
+                    <i class="fa-solid fa-gift"></i>
+                </div>
             </div>
         </div>
-        <footer>Copyright by Mai Thành Danh</footer>
+        <footer>
+            Copyright by Mai Thành Danh
+           
+        </footer>
+
+        <div class="modal">
+            <div class="modal__overlay">
+                <div class="modal__body">
+                    <div class="icon-close">
+                        <i class="fa-solid fa-circle-xmark modal__close"></i>
+                    </div>
+                    <div class="modal__getMoney">
+                        <div class="getmoney__content">
+                            Nhận thêm 50.000 nè
+                        </div>
+                        <button class="modal__btn getMoney__button">
+                            Nhận tiền
+                        </button>
+                    </div>
+                    <div class="modal__reMoney">
+                        <div class="getmoney__content">
+                           Khôi phục tiền cược
+                        </div>
+                        <button class="modal__btn reMoney__button">
+                            Khôi phục
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 <script src="./script.js"></script>

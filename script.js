@@ -22,7 +22,11 @@ var inputTom = document.querySelector('#tom')
 var inputNai = document.querySelector('#nai')
 var inputGa = document.querySelector('#ga')
 var mangInput = [inputBau,inputCua,inputCa,inputTom,inputNai,inputGa];
-
+var toast =document.querySelector('.toast');
+var toastIcon = document.querySelector('.toast__icon');
+var toastTitle = document.querySelector('.toast__title');
+var toastContent = document.querySelector('.toast__content');
+var closeToast = document.querySelector('.toast__close')
 
 if(localStorage.getItem('total') == null)
 {
@@ -69,6 +73,9 @@ btnNew.onclick = function(){
     mangInput.forEach(function(item){
         item.disabled = false;
     })
+    allin.forEach(function(i){
+        i.style.display = 'block';
+    })
     tongBau = 0; tongCa = 0; tongCua = 0;
     tongTom = 0; tongNai = 0; tongGa = 0;
     totalWin = 0;
@@ -79,6 +86,7 @@ btnNew.onclick = function(){
     check4 = false;
     check5 = false;
     check6 = false;
+    mangTong = [tongBau, tongCua, tongTom, tongCa, tongNai, tongGa];
     mangCheck = [check1,check2,check3,check4,check5,check6];
     mangImg.forEach(function(item){
         item.src = './img/giphy.gif';
@@ -86,6 +94,7 @@ btnNew.onclick = function(){
     mangInput.forEach(function(item){
        item.value = '';
     })
+    location.reload();
  }
 
 // Hàm chốt
@@ -104,7 +113,18 @@ btnChot.onclick = function(){
         if((betMoney > currMoney && dem2 < 1)  || (sum > currMoney && dem2 < 1))
         {
             dem2++;
-            alert('Vượt quá số tiền hiện có!');
+            toastIcon.innerHTML = ' <i class="fa-solid fa-triangle-exclamation"></i>';
+            toast.style.borderColor = '#ffc021';
+            toastTitle.style.color ='#ffc021';
+            toastTitle.innerText = 'Cảnh báo';
+            toastIcon.style.color = '#ffc021';
+            toastContent.style.color = '#ffc021';
+            toastContent.innerText = "Vượt quá số tiền hiện có !";
+            toast.style.display = 'flex';
+            setTimeout(function(){
+                toast.style.display = 'none';
+            },4000)
+
             mangInput.forEach(function(item){
                 item.value = '';
              })
@@ -114,11 +134,22 @@ btnChot.onclick = function(){
             check4 = false;
             check5 = false;
             check6 = false;
+            
         }
         else if(betMoney < 0 && dem1 < 1)
         {
             dem1++;
-            alert('Sai giá trị cược !');
+            toastIcon.innerHTML = ' <i class="fa-solid fa-triangle-exclamation"></i>';
+            toast.style.borderColor = '#ffc021';
+            toastTitle.style.color ='#ffc021';
+            toastTitle.innerText = 'Cảnh báo';
+            toastIcon.style.color = '#ffc021';
+            toastContent.style.color = '#ffc021';
+            toastContent.innerText = "Sai giá trị cược !";
+            toast.style.display = 'flex';
+            setTimeout(function(){
+                toast.style.display = 'none';
+            },4000)
             mangInput.forEach(function(item){
                 item.value = '';
              })
@@ -129,10 +160,21 @@ btnChot.onclick = function(){
                 check5 = false;
                 check6 = false;
         }
-        else if(betMoney == 0 && dem3 < 1)
+        else if((betMoney == 0 && dem3 < 1) || sum == 0)
         {
             dem3++;
-            alert('Sai giá trị cược !');
+            toastIcon.innerHTML = ' <i class="fa-solid fa-triangle-exclamation"></i>';
+            toast.style.borderColor = '#ffc021';
+            toastTitle.style.color ='#ffc021';
+            toastTitle.innerText = 'Cảnh báo';
+            toastIcon.style.color = '#ffc021';
+            toastContent.style.color = '#ffc021';
+            toastContent.innerText = "Chưa đặt cược !";
+            toast.style.display = 'flex';
+            setTimeout(function(){
+                toast.style.display = 'none';
+            },4000)
+
             mangInput.forEach(function(item){
                 item.value = '';
              })
@@ -143,7 +185,7 @@ btnChot.onclick = function(){
                 check5 = false;
                 check6 = false;
         }
-        else if(betMoney <= currMoney && betMoney != 0){
+        else if(betMoney <= currMoney ){
         btnXoc.disabled = false;
         btnChot.disabled = true;
         mangInput.forEach(function(item){
@@ -222,7 +264,7 @@ btnChot.onclick = function(){
            tongCua++;
            if(index.src.slice(-7) == 'tom.png')
            tongTom++;
-           if(index.src.slice(-7) == 'ca.png')
+           if(index.src.slice(-6) == 'ca.png')
            tongCa++;
            if(index.src.slice(-7) == 'nai.png')
            tongNai++;
@@ -291,8 +333,58 @@ btnChot.onclick = function(){
             }
             
         })
+        var result = totalWin - totalLose;
         localStorage.setItem('total', parseInt(total.innerText) + totalWin - totalLose);
         total.innerText = localStorage.getItem('total');
+        if(result == 0)
+        {
+            toastTitle.innerText = 'Kết quả';
+            toastIcon.innerHTML = ' <i class="fa-solid fa-circle-check"></i>';
+            toast.style.borderColor = '#1cb0f6';
+            toastTitle.style.color = '#1cb0f6';
+            toastIcon.style.color = '#1cb0f6';
+            toastContent.style.color = '#1cb0f6';
+            toastContent.innerText = "Hòa nhé";
+            toast.style.display = 'flex';
+
+            setTimeout(function(){
+                toast.style.display = 'none';
+            },4000)
+        }
+        else if(result > 0)
+        {
+            toastTitle.innerText = 'Kết quả';
+            toastIcon.innerHTML = ' <i class="fa-solid fa-circle-check"></i>';
+            toast.style.borderColor = '#47d864';
+            toastTitle.style.color = '#47d864';
+            toastIcon.style.color = '#47d864';
+            toastContent.style.color = '#47d864';
+            toastContent.innerText = `+ ${result}`;
+            toast.style.display = 'flex';
+            setTimeout(function(){
+                toast.style.display = 'none';
+            },4000)
+        }
+        else if(result < 0){
+            toastTitle.innerText = 'Kết quả';
+            toastIcon.innerHTML = ' <i class="fa-solid fa-circle-check"></i>';
+            toast.style.borderColor ='#e74c4c';
+            toast.style.borderLeft = '#ff623d';
+            toastIcon.style.color = '#ff623d'
+            toastTitle.style.color = '#ff623d';
+            toastContent.style.color = '#ff623d';
+            toastContent.innerText = `${result}`;
+            toast.style.display = 'flex';
+            setTimeout(function(){
+                toast.style.display = 'none';
+            },4000)
+        }
+        
+        if(parseInt(total.innerText) == 0)
+        {
+            getBtn.disabled = false;
+            getBtn.style.cursor = 'pointer';
+        }
         
     },3000)
 
@@ -307,3 +399,119 @@ mangInput.forEach(function(item){
     }
     
 })
+
+
+closeToast.onclick = function(){
+    toast.style.display = 'none';
+}
+
+var allin = document.querySelectorAll('.all-in');
+
+allin.forEach(function(item){
+    item.onmousedown = function(e){
+        e.preventDefault();
+     }
+})
+
+allin.forEach(function(item,index){
+    item.onclick = function(e){
+        if( parseInt(total.innerText) == 0)
+        {
+            toastIcon.innerHTML = ' <i class="fa-solid fa-triangle-exclamation"></i>';
+            toast.style.borderColor = '#ffc021';
+            toastTitle.style.color ='#ffc021';
+            toastTitle.innerText = 'Cảnh báo';
+            toastIcon.style.color = '#ffc021';
+            toastContent.style.color = '#ffc021';
+            toastContent.innerText = "Hết tiền rồi nhé !";
+            toast.style.display = 'flex';
+            setTimeout(function(){
+                toast.style.display = 'none';
+            },4000)
+        }
+        else if(index == 0)
+        {
+            inputBau.value = parseInt(total.innerText);
+            check1 = true;
+            allin.forEach(function(i){
+                i.style.display = 'none';
+            })
+        }
+        else if(index == 1)
+        {
+            inputCua.value = parseInt(total.innerText);
+            check2 = true;
+            allin.forEach(function(i){
+                i.style.display = 'none';
+            })
+        }
+        else if(index == 2)
+        {
+            inputTom.value = parseInt(total.innerText);
+            check3 = true;
+            allin.forEach(function(i){
+                i.style.display = 'none';
+            })
+        }
+        else if(index == 3)
+        {
+            inputCa.value = parseInt(total.innerText);
+            check4 = true;
+            allin.forEach(function(i){
+                i.style.display = 'none';
+            })
+        }
+        else if(index == 4)
+        {
+            inputNai.value = parseInt(total.innerText);
+            check5 = true;
+            allin.forEach(function(i){
+                i.style.display = 'none';
+            })
+        }
+        else if(index == 5)
+        {
+            inputGa.value = parseInt(total.innerText);
+            check6 = true;
+            allin.forEach(function(i){
+                i.style.display = 'none';
+            })
+        }
+     }
+})
+
+var modal = document.querySelector('.modal');
+var btnCloseModal = document.querySelector('.modal__body i');
+
+btnCloseModal.onclick = function(){
+    modal.classList.toggle('open');
+}
+
+var getBtn = document.querySelector('.getMoney__button');
+var resetBtn = document.querySelector('.reMoney__button');
+resetBtn.onclick = function(){
+    localStorage.removeItem('total');
+    location.reload();
+}
+
+getBtn.onclick = function(){
+    var cur = parseInt(total.innerText);
+    localStorage.setItem('total', cur + 50000);
+    location.reload()
+}
+
+var btnMenuMobile = document.querySelector('.menu-mobile')
+btnMenuMobile.onclick = function(){
+    modal.classList.toggle('open');
+}
+
+var btnMenuPc = document.querySelector('.menu-pc')
+btnMenuPc.onclick = function(){
+    modal.classList.toggle('open');
+}
+
+if(parseInt(total.innerText) > 0)
+{
+    getBtn.disabled = true;
+    getBtn.style.cursor = 'not-allowed';
+}
