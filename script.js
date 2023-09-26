@@ -510,8 +510,8 @@ btnMenuPc.onclick = function(){
     modal.classList.toggle('open');
 }
 
-if(parseInt(total.innerText) > 0)
-{
-    getBtn.disabled = true;
-    getBtn.style.cursor = 'not-allowed';
-}
+// if(parseInt(total.innerText) > 0)
+// {
+//     getBtn.disabled = true;
+//     getBtn.style.cursor = 'not-allowed';
+// }
